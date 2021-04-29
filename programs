@@ -1,0 +1,109 @@
+<?php
+$afternoon="Good Afternoon!";
+$evening="Good Evening!";
+$late="Working late?";
+$morning="Good morning";
+$friday="Get ready for the weekend!";
+
+$current_time=date("G");
+
+$current_day=date("l");
+
+if ($current_time >= 12 && $current_time <= 16) {
+    echo $afternoon;
+}elseif ($current_time >= 17 && $current_time <= 24) {
+    echo $evening;
+}elseif ($current_time >= 1 && $current_time <= 5) {
+    echo $late;
+}elseif ($current_time >=6 && $current_time <= 11) {
+    echo $morning;
+}
+
+if ($current_day == "Friday") {
+    echo $friday;
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Session</title>
+</head>
+<body>
+<?php
+session_start();
+if (isset($_SESSION['counter'])) {
+    $_SESSION['counter'] += 1;
+}else {
+    $_SESSION['counter'] = 1;
+}
+
+echo "You have visited this page ".$_SESSION['counter']." time in this session.";
+
+?>
+    
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Insertion</title>
+</head>
+<body>
+    <form action="getdata.php" method="post">
+        Name : <input type="text" name ="textname"><br>
+        Roll no. : <input type="text" name="Rollno"><br>
+        Address : <textarea name="address" ></textarea><br>
+        Contact no. : <input type="number" name="contact"><br>
+        Email id : <input type="email" name="emailaddress"><br>
+        Subject : <input type="text" name="subject"><br>
+        <input type="submit" name="insert" value="save">
+        <input type="reset" value="cancel">
+    </form>
+</body>
+</html>
+
+Post page.php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Get Data</title>
+</head>
+<body>
+    <?php
+    echo "Name : ".$_POST['textname']."<br>";
+    echo "Roll no. : ".$_POST['Rollno']."<br>";
+    echo "Address : ".$_POST['address']."<br>";
+    echo "Contact no. : ".$_POST['contact']."<br>";
+    echo "Email id : ".$_POST['emailaddress']."<br>";
+    echo "Subject : ".$_POST['subject']."<br>";
+    ?>
+</body>
+</html>
+
+<?php
+
+echo "-----using var_dump() on Hello world-----<br>";
+$a = "Hello world!";
+echo var_dump($a) . "<br><br>";
+
+echo "-----Sub String of Hello world-----<br>";
+echo substr("Hello world",1,8)."<br><br>";
+
+echo "-----Comparing Hello and World-----<br>";
+$b="Hello";
+$c="World";
+if (strcmp($b,$c) == 0) {
+    echo "The two strings are equal<br><br>";
+}elseif (strcmp($b,$c) < 0) {
+    echo "sring1 is less than string2<br><br>";
+}elseif (strcmp($b,$c) > 0) {
+    echo "string1 is greater than string2<br><br>";
+}
+
+echo "-----Position of php in I Love Php-----<br>";
+echo strpos("I love php","php");
+?>
