@@ -1,0 +1,38 @@
+<?php
+$sample="This is a sample text";
+echo str_word_count($sample);
+?>
+
+<?php
+for($i=1;$i<=8;$i++)
+{
+    for($j=1;$j<=$i;$j++)
+    {
+        echo "*";
+    }
+    echo "<br>";
+}
+?>
+
+<?php
+$num=3;
+$factorial=1;
+for($i=1;$i<=$num;$i++)
+{
+    $factorial=$factorial*$i;
+}
+
+echo "The factorial of $num is  $factorial";
+
+?>
+
+<?php
+$str="Tutorilas Class";
+echo strlen($str);
+?>
+
+<?php
+$str="Tutorials Class";
+echo strrev($str);
+?>
+
